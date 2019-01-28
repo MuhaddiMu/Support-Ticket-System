@@ -15,4 +15,7 @@ Route::get('/', 'PagesController@Index');
 
 Route::get('/Services', 'PagesController@Services');
 
+Route::resource('Posts', 'PostsController');
+
 Route::get('/{Name}', 'PagesController@IndexName');
+

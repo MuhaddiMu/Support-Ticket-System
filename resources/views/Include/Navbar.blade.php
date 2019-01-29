@@ -12,6 +12,9 @@
 			<li class="nav-item active">
 			  <a class="nav-link" href="/Services">Services</a>
 			</li>
+			<li class="nav-item nav navbar-right active">
+			  <a class="nav-link" href="/Posts/create">Create New Post</a>
+			</li>
 		  </ul>
 		  <form class="form-inline my-2 my-lg-0">
 			<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">

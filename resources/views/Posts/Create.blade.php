@@ -9,8 +9,8 @@
 		</div>
 
 		<div class="form-group">
-				<label for="Body">Post Content</label>
-				<textarea name="Body" id="Body" class="form-control" placeholder="Post Content" rows="10"></textarea>
+				<label for="article-ckeditor">Post Content</label>
+				<textarea name="Body" id="article-ckeditor" class="form-control" placeholder="Post Content" rows="10"></textarea>
 		</div>
 		<button class="btn btn-primary" type="submit">Create Post</button>
 	</form>

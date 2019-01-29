@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Mtownsend\ReadTime\ReadTime;
 
 class PostsController extends Controller
 {
@@ -64,6 +65,8 @@ class PostsController extends Controller
     {
         $Post = Post::find($id);
         //return Post::Where('id', '1')->get();
+        //$readTime = (new ReadTime($Post))->get();
+
         return view('Posts/Show')->with('Post', $Post);
     }
 

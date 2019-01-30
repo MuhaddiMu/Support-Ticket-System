@@ -10,5 +10,7 @@
 		@endforeach
 		
 		<p>{{$Posts->links()}}</p>
+	@else
+		No Posts Found, Go and Craft <a href="/Posts/create">New Post</a>
 	@endif
 @endsection

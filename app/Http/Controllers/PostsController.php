@@ -18,7 +18,7 @@ class PostsController extends Controller
         //$Posts = Post::orderBy('id', 'Desc')->get();
         //$Posts = Post::all(); 
         //return Post::take(3)->get();
-        $Posts = Post::paginate(10);
+        $Posts = Post::orderBy('id', 'Desc')->paginate(10);
 
         return view('Posts/Index')->with('Posts', $Posts);
     }
@@ -78,7 +78,8 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Post = Post::find($id);
+        return view('Posts/Update')->with('Post', $Post);
     }
 
     /**
@@ -90,7 +91,17 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'Title' => 'required',
+            'Body' => 'required',
+        ]);
+
+        $Post = Post::find($id);
+        $Post->Title = $request->input('Title');
+        $Post->Body = $request->input('Body');
+        $Post->save();
+
+        return redirect('/Posts')->with('Success', 'Success! Post Updated');
     }
 
     /**
@@ -101,6 +112,9 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $Post = Post::find($id);
+       $Post->delete();
+
+       return redirect('/Posts')->with('Success', 'Success! Post Deleted');
     }
 }

@@ -6,13 +6,7 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    public function Index(){
-        return view('Home');
-    }
 
-    public function IndexName($Name){
-        return view('welcomeName')->with('Name', $Name);
-    }
 
     public function Services(){
         $Services = array(

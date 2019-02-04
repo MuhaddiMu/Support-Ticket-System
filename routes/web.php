@@ -11,11 +11,12 @@
 |
 */
 
-Route::get('/', 'PagesController@Index');
+Route::get('/', 'HomeController@index');
 
 Route::get('/Services', 'PagesController@Services');
 
 Route::resource('Posts', 'PostsController');
 
-Route::get('/{Name}', 'PagesController@IndexName');
+Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');

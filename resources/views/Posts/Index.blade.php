@@ -5,12 +5,12 @@
 		@foreach ($Posts as $Post)
 		<div class="card card-body bg-light">
 			<a href="/Posts/{{$Post->id}}"><h3>{{$Post->Title}}</h3></a>
-				<small>Posted on {{$Post->created_at->toFormattedDateString()}}</small>
+				<small>Posted on {{$Post->created_at->toFormattedDateString()}} by {{$Post->user['name']}}</small>
 			</div>
 		@endforeach
 		
 		<p>{{$Posts->links()}}</p>
 	@else
-		No Posts Found, Go and Craft <a href="/Posts/create">New Post</a>
+		No Posts Found, Go and Craft one<a href="/Posts/create">New Post</a>
 	@endif
 @endsection

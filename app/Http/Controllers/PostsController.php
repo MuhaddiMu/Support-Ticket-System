@@ -8,6 +8,17 @@ use Mtownsend\ReadTime\ReadTime;
 
 class PostsController extends Controller
 {
+
+	/**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    } 
+
     /**
      * Display a listing of the resource.
      *
@@ -80,7 +91,11 @@ class PostsController extends Controller
     public function edit($id)
     {
         $Post = Post::find($id);
-        return view('Posts/Update')->with('Post', $Post);
+        if($Post->User_id === auth()->user()->id){
+            return view('Posts/Update')->with('Post', $Post);
+        } else {
+			return redirect('/Posts')->with('Error', 'You are not Authorized to Edit this Post');
+		}
     }
 
     /**
@@ -97,12 +112,16 @@ class PostsController extends Controller
             'Body' => 'required',
         ]);
 
-        $Post = Post::find($id);
-        $Post->Title = $request->input('Title');
-        $Post->Body = $request->input('Body');
-        $Post->save();
+		$Post = Post::find($id);
+		if($Post->User_id === auth()->user()->id){
+			$Post->Title = $request->input('Title');
+			$Post->Body = $request->input('Body');
+			$Post->save();
+			return redirect('/Posts')->with('Success', 'Success! Post Updated');
+		} else {
+			return redirect('/Posts')->with('Error', 'You are not Authorized to Edit this Post');
+		}
 
-        return redirect('/Posts')->with('Success', 'Success! Post Updated');
     }
 
     /**
@@ -114,8 +133,11 @@ class PostsController extends Controller
     public function destroy($id)
     {
        $Post = Post::find($id);
-       $Post->delete();
-
-       return redirect('/Posts')->with('Success', 'Success! Post Deleted');
+	    if($Post->User_id === auth()->user()->id){
+            $Post->delete();
+           return redirect('/Posts')->with('Success', 'Success! Post Deleted');
+        } else {
+			return redirect('/Posts')->with('Error', 'You are not Authorized to Edit this Post');
+		}
     }
 }

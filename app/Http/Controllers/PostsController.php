@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use Mtownsend\ReadTime\ReadTime;
+use Illuminate\Support\Facades\Storage; 
 
 class PostsController extends Controller
 {
@@ -54,13 +55,35 @@ class PostsController extends Controller
     {
         $this->validate($request, [
             'Title' => 'required',
-            'Body' => 'required',
+            'Body'  => 'required',
+            'Img'   => 'image|nullable|max:20000',
         ]);
+
+        if($request->only('Img')){
+            //Get File
+            $FileExt = $request->file('Img')->getClientOriginalName();
+
+            //Get Just File Name
+            $FileName = pathinfo($FileExt, PATHINFO_FILENAME);
+
+            //Get Just Extenstion
+            $Ext = $request->file('Img')->getClientOriginalExtension();
+
+            //Store File
+            $FileStore = rand(0, 1000) . '.' . $Ext;
+
+            //Upload Image 
+            $Path = $request->file('Img')->storeAs('public/Imgs/', $FileStore);
+
+        } else {
+            $FileStore = "NoImg.jpg";
+        }
 
         $Post = new Post;
         $Post->Title = $request->input('Title');
         $Post->Body = $request->input('Body');
         $Post->User_id = auth()->user()->id;
+        $Post->Img = $FileStore;
         $Post->save();
 
         return redirect('/Posts')->with('Success', 'Success! Post Created');
@@ -112,10 +135,31 @@ class PostsController extends Controller
             'Body' => 'required',
         ]);
 
+        if($request->only('Img')){
+            //Get File
+            $FileExt = $request->file('Img')->getClientOriginalName();
+
+            //Get Just File Name
+            $FileName = pathinfo($FileExt, PATHINFO_FILENAME);
+
+            //Get Just Extenstion
+            $Ext = $request->file('Img')->getClientOriginalExtension();
+
+            //Store File
+            $FileStore = rand(0, 1000) . '.' . $Ext;
+
+            //Upload Image 
+            $Path = $request->file('Img')->storeAs('public/Imgs/', $FileStore);
+
+        }
+
 		$Post = Post::find($id);
 		if($Post->User_id === auth()->user()->id){
 			$Post->Title = $request->input('Title');
-			$Post->Body = $request->input('Body');
+            $Post->Body = $request->input('Body');
+            if($request->hasFile('Img')){
+                $Post->Img = $FileStore;
+            }
 			$Post->save();
 			return redirect('/Posts')->with('Success', 'Success! Post Updated');
 		} else {
@@ -134,6 +178,9 @@ class PostsController extends Controller
     {
        $Post = Post::find($id);
 	    if($Post->User_id === auth()->user()->id){
+            if($Post->Img != 'NoImg.jpg'){
+                Storage::delete('public/Imgs/'.$Post->Img);
+            }
             $Post->delete();
            return redirect('/Posts')->with('Success', 'Success! Post Deleted');
         } else {

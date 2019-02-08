@@ -1,7 +1,7 @@
 @extends('Layouts/Layout')
 @section('Content')
 		<h1>Edit Post</h1>
-		<form action="{{action('PostsController@update', $Post->id)}}" method="post">
+		<form action="{{action('PostsController@update', $Post->id)}}" method="post"method="post" enctype="multipart/form-data">
 			@csrf
 			<div class="form-group">
 				<label for="Title">Your Post Title</label>
@@ -11,6 +11,10 @@
 			<div class="form-group">
 					<label for="article-ckeditor">Post Content</label>
 					<textarea name="Body" id="article-ckeditor" class="form-control" placeholder="Post Content" rows="10">{{$Post->Body}}</textarea>
+			</div>
+			<div class="form-group">
+					<label for="Img">Featured Image:</label><br>
+					<input type="file" id="Img" name="Img">
 			</div>
 			<input type="hidden" name="_method" value="PUT">
 			<button class="btn btn-primary" type="submit">Update Post</button>

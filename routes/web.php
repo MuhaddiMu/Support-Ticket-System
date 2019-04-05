@@ -11,12 +11,4 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
-
-Route::get('/Services', 'PagesController@Services');
-
-Route::resource('Posts', 'PostsController');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'TicketsController@Create');

@@ -11,6 +11,5 @@
 |
 */
 
-Route::resource('Create', 'TicketsController');
 
 Route::resource('/', 'TicketsController');

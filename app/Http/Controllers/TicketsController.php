@@ -36,8 +36,8 @@ class TicketsController extends Controller
     {
 
         $this->validate($request, [
-            'Title' => 'required|min:3',
-            'Content' => 'required|min:3',
+            'Title' => 'required',
+            'Content' => 'required',
         ]);
         return $request->all();
     }

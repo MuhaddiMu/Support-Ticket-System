@@ -13,7 +13,7 @@ class TicketsController extends Controller
      */
     public function index()
     {
-        //
+        return view('tickets/create');
     }
 
     /**
@@ -23,7 +23,7 @@ class TicketsController extends Controller
      */
     public function create()
     {
-        return view('tickets/create');
+        
     }
 
     /**
@@ -34,7 +34,12 @@ class TicketsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate($request, [
+            'Title' => 'required|min:3',
+            'Content' => 'required|min:3',
+        ]);
+        return $request->all();
     }
 
     /**

@@ -23,7 +23,7 @@
 				<div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
 				  <ul class="navbar-nav">
 					<li class="nav-item active">
-					  <a class="nav-link" href="#">Centered nav only <span class="sr-only">(current)</span></a>
+					  <a class="nav-link" href="#">Support Ticket System<span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
 					  <a class="nav-link" href="#">Link</a>

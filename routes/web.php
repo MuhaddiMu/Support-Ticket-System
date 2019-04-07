@@ -11,4 +11,6 @@
 |
 */
 
-Route::get('/', 'TicketsController@Create');
+Route::resource('Create', 'TicketsController');
+
+Route::resource('/', 'TicketsController');

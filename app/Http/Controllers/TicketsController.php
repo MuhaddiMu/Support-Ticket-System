@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ticket;
 use Illuminate\Http\Request;
 
 class TicketsController extends Controller
@@ -39,7 +40,15 @@ class TicketsController extends Controller
             'Title' => 'required',
             'Content' => 'required',
         ]);
-        return $request->all();
+
+        $Ticket = new ticket;
+        $Ticket->title = $request->input('Title');
+        $Ticket->content = $request->input('Content');
+        $Ticket->slug = uniqid();
+        $Ticket->save();
+
+        return redirect('/')->with('Status', 'Your ticket has been created! Its unique id is: ' . $Ticket->slug);
+
     }
 
     /**

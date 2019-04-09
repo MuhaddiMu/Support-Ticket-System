@@ -14,7 +14,10 @@ class TicketsController extends Controller
      */
     public function index()
     {
-        return view('tickets/create');
+
+        $Ticket = Ticket::all();
+
+        return view('tickets/tickets')->with('Ticket', $Ticket);
     }
 
     /**
@@ -24,7 +27,7 @@ class TicketsController extends Controller
      */
     public function create()
     {
-        
+        return view('tickets/create');
     }
 
     /**

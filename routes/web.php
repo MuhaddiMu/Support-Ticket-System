@@ -13,3 +13,5 @@
 
 
 Route::resource('/', 'TicketsController');
+Route::resource('Ticket/{ID}', 'TicketsController');
+

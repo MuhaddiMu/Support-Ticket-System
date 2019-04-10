@@ -27,7 +27,7 @@ class TicketsController extends Controller
      */
     public function create()
     {
-        return view('tickets/create');
+        return view('/Tickets/create');
     }
 
     /**
@@ -50,7 +50,7 @@ class TicketsController extends Controller
         $Ticket->slug = uniqid();
         $Ticket->save();
 
-        return redirect('/')->with('Status', 'Your ticket has been created! Its unique id is: ' . $Ticket->slug);
+        return redirect('/Tickets/create')->with('Status', 'Your ticket has been created! Its unique id is: ' . $Ticket->slug);
 
     }
 
@@ -62,7 +62,8 @@ class TicketsController extends Controller
      */
     public function show($id)
     {
-        //
+        $Ticket = Ticket::whereSlug($id)->first();
+        return view('tickets/show')->with('Ticket', $Ticket);
     }
 
     /**
@@ -73,7 +74,8 @@ class TicketsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Ticket = Ticket::whereSlug($id)->first();
+        return view('tickets/edit')->with('Ticket', $Ticket);
     }
 
     /**
@@ -85,7 +87,22 @@ class TicketsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'Title' => 'required',
+            'Content' => 'required',
+        ]);
+
+        $Ticket = Ticket::whereSlug($id)->first();
+        $Ticket->title = $request->input('Title');
+        $Ticket->content = $request->input('Content');
+        if($request->input('Status') != null){
+            $Ticket->status = '0';
+        } else {
+            $Ticket->status = '1';
+        }
+        $Ticket->save();
+        return redirect('/Tickets/'.$id.'/edit')->with('Status', 'Ticket has been updated!');
+
     }
 
     /**

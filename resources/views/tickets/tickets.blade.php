@@ -9,7 +9,7 @@
 					<h5 class="card-title">Tickets</h5>
 					@if ($Ticket->isEmpty())
 						<div class="alert alert-warning">There are no Tickets</div>
-						<a href="/Create">Submit a Ticket</a>
+						<a href="Tickets/create">Submit a Ticket</a>
 
 					@else 
 						<table class="table">
@@ -25,7 +25,7 @@
 								@foreach ($Ticket as $Tickets)
 								<tr>
 									<td>{{ $Tickets->id }}</td>
-									<td>{{ $Tickets->title }}</td>
+									<td><a href="/Tickets/{{$Tickets->slug}}">{{ $Tickets->title }}</a></td>
 									<td>{{ $Tickets->status ? 'Pending' : 'Answered' }}</td>
 								</tr>
 								@endforeach

@@ -7,9 +7,10 @@
 		<div class="card">
 				<div class="card-body">
 					<h5 class="card-title">Tickets</h5>
+					@include('Layouts/errors')
 					@if ($Ticket->isEmpty())
 						<div class="alert alert-warning">There are no Tickets</div>
-						<a href="Tickets/create">Submit a Ticket</a>
+						<a href="/Tickets/create">Submit a Ticket</a>
 
 					@else 
 						<table class="table">

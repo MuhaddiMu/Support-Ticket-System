@@ -113,6 +113,8 @@ class TicketsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $Ticket = Ticket::whereSlug($id)->first();
+        $Ticket->delete();
+        return redirect('/Tickets')->with('Status', 'Ticket has been deleted!');
     }
 }

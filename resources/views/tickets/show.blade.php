@@ -9,8 +9,14 @@
 					<h5 class="card-title">{{$Ticket->title}}</h5>
 				<p><strong>Status: </strong>{{$Ticket->status ? 'Pending' : 'Answered'}}</p>
 				<p>{{$Ticket->content}}</p>
+				<form action="{{action('TicketsController@destroy', $Ticket->slug)}}" method="POST" class="form-inline">
+					@method('DELETE')
+					@csrf
 				<a href="{{$Ticket->slug}}/edit" class="btn btn-info">Edit</a>
-				<a href="#" class="btn btn-info">Delete</a>
+					<div>
+					<button type="submit" class="btn btn-danger">Delete</a>
+					</div>
+				</form>
 				</div>
 				</div>
 				

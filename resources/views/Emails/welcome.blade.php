@@ -7,7 +7,7 @@
 	<title>Laravel</title>
 </head>
 <body>
-	<h2>Learning Laravel</h2>
-	<div>Welcome to {{ $name }} Website!!</div>
+<p>Hello,</p>
+<p>{{$content}}</p>
 </body>
 </html>

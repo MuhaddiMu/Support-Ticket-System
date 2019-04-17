@@ -14,14 +14,8 @@
 
 Route::resource('Tickets', 'TicketsController');
 
-Route::get('sendemail', function(){
-		$data = array(
-			'name' => "Muhaddis",
-		);
+Route::get('Mail', 'PagesController@MailPost');
 
-		Mail::send('Emails/welcome', $data, function ($message){
-			$message->from('muhaddisshah@gmail.com', 'Learning Laravel');
-			$message->to('muhaddisshah@gmail.com')->subject('Learning Laravel test email');	
-		});
-		return "Your email has been sent successfully";
-});
+Route::post('Mail', 'PagesController@SendEmailPost');
+
+//Route::get('Mail', 'PagesController@SendEmail');

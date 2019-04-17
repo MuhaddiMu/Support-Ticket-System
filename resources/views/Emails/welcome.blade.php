@@ -7,7 +7,7 @@
 	<title>Laravel</title>
 </head>
 <body>
-<p>Hello,</p>
-<p>{{$content}}</p>
+<h2>Learning Laravel</h2>
+<div>You have a new ticket. The ticket ID is {{$TicketData['Slug']}}</div>
 </body>
 </html>

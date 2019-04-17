@@ -17,9 +17,9 @@ class Email extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($TicketData)
     {
-        //
+        $this->TicketData = $TicketData;
     }
 
     /**
@@ -27,9 +27,8 @@ class Email extends Mailable
      *
      * @return $this
      */
-    public function build(request $request)
+    public function build()
     {
-        return $this->view('Emails/welcome', ['content' => $request->message])->to($request->email)->subject('Email');
-         redirect(Request::url());
+        return $this->view('Emails/welcome')->to('Muhaddisshah@gmail.com')->subject('New Ticket')->with('TicketData', $this->TicketData);
     }
 }

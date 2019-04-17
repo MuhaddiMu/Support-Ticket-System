@@ -12,10 +12,6 @@ class PagesController extends Controller
 		Mail::send(new Email());
 	}
 
-	public function SendEmailPost(){
-		Mail::send(new Email());
-	}
-
 	public function MailPost(){
 		return view('tickets/Mailer');
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Ticket;
 use Illuminate\Http\Request;
+use Mail;
+use App\Mail\Email;
 
 class TicketsController extends Controller
 {
@@ -50,6 +52,11 @@ class TicketsController extends Controller
         $Ticket->slug = uniqid();
         $Ticket->save();
 
+        $TicketData = array(
+            'Slug' => $Ticket->slug,
+        );
+
+        Mail::send(new Email($TicketData));
         return redirect('/Tickets/create')->with('Status', 'Your ticket has been created! Its unique id is: ' . $Ticket->slug);
 
     }

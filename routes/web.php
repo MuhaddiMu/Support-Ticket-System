@@ -14,8 +14,3 @@
 
 Route::resource('Tickets', 'TicketsController');
 
-Route::get('Mail', 'PagesController@MailPost');
-
-Route::post('Mail', 'PagesController@SendEmailPost');
-
-//Route::get('Mail', 'PagesController@SendEmail');

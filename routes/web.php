@@ -14,3 +14,4 @@
 
 Route::resource('Tickets', 'TicketsController');
 
+Route::post('/Comment', 'CommentsController@NewComment');

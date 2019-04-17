@@ -70,7 +70,8 @@ class TicketsController extends Controller
     public function show($id)
     {
         $Ticket = Ticket::whereSlug($id)->first();
-        return view('tickets/show')->with('Ticket', $Ticket);
+        $Comments = $Ticket->Comments()->get();
+        return view('tickets/show')->with('Ticket', $Ticket)->with('Comments', $Comments);
     }
 
     /**

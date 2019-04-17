@@ -12,7 +12,7 @@ class CommentsController extends Controller
 
         $this->validate($request, [
             'post_id' => 'required',
-            'Content' => 'required',
+            'Content' => 'required|max:300',
         ]);
 
         $Comment = new Comment;

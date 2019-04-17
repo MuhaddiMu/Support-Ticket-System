@@ -25,7 +25,7 @@
 				<div class="pt-3 container col-md-8">
 					<div class="card">
 						<div class="card-body">
-							{{$Comment->content}}
+							{{str_limit($Comment->content, 300)}}
 						</div>
 					</div>
 				</div>

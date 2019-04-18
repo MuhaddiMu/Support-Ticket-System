@@ -1,5 +1,5 @@
 @extends('Layouts/master')
-@section('Title', 'View a Ticket')
+@section('Title', $Ticket->title)
 
 @section('Content')
 <div class="pt-3 container col-md-8">

@@ -1,5 +1,5 @@
 @extends('Layouts/master')
-@section('Title', 'View All Tickets')
+@section('Title', 'All Tickets')
 
 @section('Content')
 

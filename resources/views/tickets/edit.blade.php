@@ -1,5 +1,5 @@
 @extends('Layouts/master')
-@section('Title', 'Edit Ticket')
+@section('Title', $Ticket->title . ' | Edit')
 
 @section('Content')
 

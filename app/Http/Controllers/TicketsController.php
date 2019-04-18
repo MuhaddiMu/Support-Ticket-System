@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ticket;
+use App\Comment;
 use Illuminate\Http\Request;
 use Mail;
 use App\Mail\Email;
@@ -17,7 +18,7 @@ class TicketsController extends Controller
     public function index()
     {
 
-        $Ticket = Ticket::all();
+        $Ticket = Ticket::orderBy('id', 'DESC')->get();
 
         return view('tickets/tickets')->with('Ticket', $Ticket);
     }
@@ -29,7 +30,7 @@ class TicketsController extends Controller
      */
     public function create()
     {
-        return view('/Tickets/create');
+        return view('tickets/create');
     }
 
     /**
@@ -52,12 +53,13 @@ class TicketsController extends Controller
         $Ticket->slug = uniqid();
         $Ticket->save();
 
-        $TicketData = array(
+        //Sending Mail to the Admin
+        /* $TicketData = array(
             'Slug' => $Ticket->slug,
         );
 
-        Mail::send(new Email($TicketData));
-        return redirect('/Tickets/create')->with('Status', 'Your ticket has been created! Its unique id is: ' . $Ticket->slug);
+        Mail::send(new Email($TicketData)); */
+        return redirect('/create')->with('Status', 'Your ticket has been created! Its unique id is: ' . $Ticket->slug);
 
     }
 
@@ -109,7 +111,7 @@ class TicketsController extends Controller
             $Ticket->status = '1';
         }
         $Ticket->save();
-        return redirect('/Tickets/'.$id.'/edit')->with('Status', 'Ticket has been updated!');
+        return redirect($id.'/edit')->with('Status', 'Ticket has been updated!');
 
     }
 
@@ -121,8 +123,9 @@ class TicketsController extends Controller
      */
     public function destroy($id)
     {
-        $Ticket = Ticket::whereSlug($id)->first();
+        $Ticket = Ticket::where('id', $id)->first();
         $Ticket->delete();
-        return redirect('/Tickets')->with('Status', 'Ticket has been deleted!');
+        Comment::where('post_id', $id)->delete();
+        return redirect('/')->with('Status', 'Ticket has been deleted!');
     }
 }

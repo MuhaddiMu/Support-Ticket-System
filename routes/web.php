@@ -12,6 +12,10 @@
 */
 
 
-Route::resource('Tickets', 'TicketsController');
+Route::resource('/', 'TicketsController');
+Route::GET('/{slug}', 'TicketsController@show');
+Route::GET('/{slug}/edit', 'TicketsController@edit');
+Route::PUT('/{slug}', 'TicketsController@update');
+Route::DELETE('/{slug}', 'TicketsController@destroy');
 
 Route::post('/Comment', 'CommentsController@NewComment');

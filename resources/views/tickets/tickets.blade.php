@@ -10,7 +10,7 @@
 					@include('Layouts/errors')
 					@if ($Ticket->isEmpty())
 						<div class="alert alert-warning">There are no Tickets</div>
-						<a href="/Tickets/create">Submit a Ticket</a>
+						<a href="/create">Submit a Ticket</a>
 
 					@else 
 						<table class="table">
@@ -23,10 +23,11 @@
 								</tr>
 							</thead>
 							<tbody>
+								<?php $Count = 1; ?>
 								@foreach ($Ticket as $Tickets)
 								<tr>
-									<td>{{ $Tickets->id }}</td>
-									<td><a href="/Tickets/{{$Tickets->slug}}">{{ $Tickets->title }}</a></td>
+									<td>{{$Count++}}</td>
+									<td><a href="/{{$Tickets->slug}}">{{ $Tickets->title }}</a></td>
 									<td>{{ $Tickets->status ? 'Pending' : 'Answered' }}</td>
 								</tr>
 								@endforeach

@@ -20,7 +20,7 @@
 						  <textarea id="Content" name="Content" class="form-control" rows="3"></textarea>
 						  <span class="bmd-help">Feel free to ask us any question</span>
 						</div>  
-						<button class="btn btn-default">Cancel</button>
+						<a class="btn btn-default" href="{{ URL::previous() }}">Cancel</a>
 						<button type="submit" class="btn btn-primary">Submit</
 					  </form>
 				</div>

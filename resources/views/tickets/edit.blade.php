@@ -25,8 +25,8 @@
 								<input type="checkbox" name="Status" {{$Ticket->status ? "" : "checked"}}> Close this ticket?
 							</label>
 						</div>
-						<button class="btn btn-default">Cancel</button>
-						<button type="submit" class="btn btn-primary">Submit</
+						<a class="btn btn-default" href="{{ URL::previous() }}">Cancel</a>
+						<button type="submit" class="btn btn-primary">Submit</button>
 					  </form>
 				</div>
 				</div>

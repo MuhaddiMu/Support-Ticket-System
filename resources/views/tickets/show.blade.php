@@ -42,7 +42,8 @@
 					  <label for="Content" class="bmd-label-floating">Content</label>
 					  <textarea id="Content" name="Content" class="form-control" rows="3"></textarea>
 					</div>  
-					<button type="submit" class="btn btn-primary">Submit</
+					<a class="btn btn-default" href="{{ URL::previous() }}">Cancel</a>
+					<button type="submit" class="btn btn-primary">Submit</button>
 				  </form>
 			</div>
 			</div>

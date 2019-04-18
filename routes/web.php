@@ -18,4 +18,4 @@ Route::GET('/{slug}/edit', 'TicketsController@edit');
 Route::PUT('/{slug}', 'TicketsController@update');
 Route::DELETE('/{slug}', 'TicketsController@destroy');
 
-Route::post('/Comment', 'CommentsController@NewComment');
+Route::POST('/Comment', 'CommentsController@NewComment');

@@ -25,7 +25,7 @@ Thank you for considering contributing to the Laravel framework!
 
 ## Use
 <p align="center">
-  <img width="100%" src="https://media.giphy.com/media/jrtmSIoCq8PAucda2D/source.gif">
+  <img width="100%" src="https://i.giphy.com/media/jrtmSIoCq8PAucda2D/source.gif">
 </p>
 
 ## Contact

@@ -12,11 +12,20 @@ Support Ticket System in Laravel.
 Learning Based project form book "Learning Laravel 5" by Nathan Wu.
 Feel free to to download and use it. 
 
+Our ticket system is simple:
+* When users visit the contact page, they will be able to submit a ticket to contact us.
+* Once they’ve created a ticket, the system will send us an email to let us know that there is a
+new ticket. (Disabled, You can enable it by Uncommenting in the Controller)
+* The ticket system automatically generates a unique link to let us access the ticket.
+* We can view all the tickets.
+* We can be able to reply, edit, change tickets’ status or delete them.
+
+
 Thank you for considering contributing to the Laravel framework!
 
 ## Use
 <p align="center">
-  <img width="100%" src="https://media.giphy.com/media/jrtmSIoCq8PAucda2D/giphy.gif">
+  <img width="100%" src="https://media.giphy.com/media/jrtmSIoCq8PAucda2D/source.gif">
 </p>
 
 ## Contact

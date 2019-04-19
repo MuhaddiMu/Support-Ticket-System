@@ -18,3 +18,9 @@ Thank you for considering contributing to the Laravel framework!
 <p align="center">
   <img width="100%" src="https://media.giphy.com/media/jrtmSIoCq8PAucda2D/giphy.gif">
 </p>
+
+## Contact
+Want to Connect?
+[Muhaddis.Info](https://www.Muhaddis.Info)
+[Facebook](https://www.facebook.com/MuhaddiMu)
+[Twitter](https://twitter.com/MuhaddiMu)

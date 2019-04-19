@@ -7,4 +7,12 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## Support Ticket System
+## Support Ticket System in Laravel
+Support Ticket System in Laravel. 
+Learning Based project form book "Learning Laravel 5" by Nathan Wu.
+Feel free to to download and use it. 
+
+Thank you for considering contributing to the Laravel framework!
+
+
+![Support Ticket System](https://media.giphy.com/media/jrtmSIoCq8PAucda2D/giphy.gif)

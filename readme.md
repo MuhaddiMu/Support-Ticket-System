@@ -30,6 +30,6 @@ Thank you for considering contributing to the Laravel framework!
 
 ## Contact
 Want to Connect?
-[Muhaddis.Info](https://www.Muhaddis.Info)
-[Facebook](https://www.facebook.com/MuhaddiMu)
+[Muhaddis.Info](https://www.Muhaddis.Info) | 
+[Facebook](https://www.facebook.com/MuhaddiMu) | 
 [Twitter](https://twitter.com/MuhaddiMu)

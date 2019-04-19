@@ -14,5 +14,7 @@ Feel free to to download and use it.
 
 Thank you for considering contributing to the Laravel framework!
 
-
-![Support Ticket System](https://media.giphy.com/media/jrtmSIoCq8PAucda2D/giphy.gif)
+## Use
+<p align="center">
+  <img width="100%" src="https://media.giphy.com/media/jrtmSIoCq8PAucda2D/giphy.gif">
+</p>
